@@ -1,0 +1,33 @@
+inicio
+	texto[] nomeAlunos
+	float[] mediaAlunos
+	int quantidade = 0
+	IMPRIME("Informe a quantidade de alunos")
+	RECEBE(quantidade)
+	nomeAlunos = texto[quantidade]
+	mediaAlunos = float[quantidade]
+	
+	para(int i=0;i<=quantidade;i++)
+		IMPRIME("Informe o nome do aluno")
+		RECEBE(nomeAlunos[i])
+		int[] notas = int[4]
+		para(int j=0;j<=4;j++)
+			IMPRIME("Informe a nota "+(j+1))
+			RECEBE(notas[j])
+		fim para
+		
+		int somaNotas = 0
+		para(int j=0;j<=4;j++)
+			somaNotas+=notas[j]
+		fim para
+		
+		mediaAlunos[i] = somaNotas/4
+	fim para
+	
+	para(int i=0;i<=quantidade;i++)
+			IMPRIME("Média do Aluno "+nomeAlunos[i])
+			IMPRIME("foi "+mediaAlunos[i])
+	fim para
+fim
+		
+	
