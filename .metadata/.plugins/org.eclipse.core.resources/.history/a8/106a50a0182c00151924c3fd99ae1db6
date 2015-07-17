@@ -1,0 +1,12 @@
+package br.com.cepep.turma1;
+
+public class Soma {
+	public static void main(String[] args) {
+		int a = 0;
+		int b = 0;
+		System.out.println("Imprima o primeiro valor");
+		
+		int resultado = a + b;
+		System.out.println("Soma dos valores informados é: ");
+	}
+}

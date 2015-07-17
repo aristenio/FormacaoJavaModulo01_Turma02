@@ -58,3 +58,5 @@ Módulos:
 	- Plataforma Java (JVM,JRE e JDK). 
 		- Instalação e configuração
 		- Criando programas em Java (desenvolvendo, compilando e executando)
+		- IDE para desenvolvendo em Java.
+			- Instalando e configurando o Eclipse
