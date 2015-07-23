@@ -1,7 +1,0 @@
-package br.com.cepep.turma1;
-
-public class Soma {
-	public static void main(String[] args) {
-		
-	}
-}
