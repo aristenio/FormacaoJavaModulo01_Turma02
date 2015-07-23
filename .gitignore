@@ -1,3 +1,5 @@
 *.class
 bin/
 .metadata/
+RemoteSystemsTempFiles/
+.settings/*.*
