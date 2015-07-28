@@ -1,4 +1,4 @@
-# FormacaoJavaModulo01_Turma02
+﻿# FormacaoJavaModulo01_Turma02
 
 Curso de formação em Java para Web - Módulo 1
 
@@ -60,3 +60,6 @@ Módulos:
 		- Criando programas em Java (desenvolvendo, compilando e executando)
 		- IDE para desenvolvendo em Java.
 			- Instalando e configurando o Eclipse
+	- Variáveis e tipos primitivos
+	- Operadores e conversões
+	- Estruturas de decisão (if-elseif-else, switch-case)
