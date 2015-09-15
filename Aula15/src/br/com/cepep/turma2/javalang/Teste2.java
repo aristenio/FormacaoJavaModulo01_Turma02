@@ -6,7 +6,11 @@ import br.com.cepep.turma2.banco.ContaCorrente;
 import br.com.cepep.turma2.empresa.Empresa;
 
 public class Teste2 {
+<<<<<<< HEAD
 	public static void main(String[] args) throws Exception{
+=======
+	public static void main(String[] args) {
+>>>>>>> 0ee27511ea68af81814718870216a3de76908449
 		GuardadorDeObjetos go = new GuardadorDeObjetos();
 		
 		Cliente cliente = new Cliente("Antonio","8658765");
