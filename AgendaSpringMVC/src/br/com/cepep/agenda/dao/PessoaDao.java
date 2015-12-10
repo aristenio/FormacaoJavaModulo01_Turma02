@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import br.com.cepep.agenda.entidades.Pessoa;
@@ -17,8 +16,8 @@ public class PessoaDao {
 	private String tabela = "pessoas";
 	private String sqlListar = "select * from " + tabela;
 	private String sqlConsultar = "select * from " + tabela + " where id=?";
-	private String sqlInserir = "insert into " + tabela + " (nome,email,celular,fixo) values (?,?,?,?)";
-	private String sqlEditar = "update " + tabela + " set nome = ?, email = ?, celular = ?, fixo = ? where id = ?";
+	private String sqlInserir = "insert into " + tabela + " (nome,celular) values (?,?)";
+	private String sqlEditar = "update " + tabela + " set nome = ?, celular = ? where id = ?";
 	private String sqlDeletar = "delete from " + tabela + " where id=?";
 
 	public PessoaDao() {
@@ -44,17 +43,6 @@ public class PessoaDao {
 			pessoa.setId(rs.getInt("id"));
 			pessoa.setNome(rs.getString("nome"));
 			pessoa.setCelular(rs.getString("celular"));
-			pessoa.setFixo(rs.getString("fixo"));
-			pessoa.setEmail(rs.getString("email"));
-			// String dat = rs.getDate("datanascimento").toString();
-			// SimpleDateFormat DATE_FORMAT = new
-			// SimpleDateFormat("yyyy-MM-dd");
-			// DATE_FORMAT.format(new Dat)
-			// java.util.Date dataNascimento = new java.util.Date();
-			// dataNascimento.setYear(date.getYear());
-			// dataNascimento.setMonth(date.getMonth());
-			// dataNascimento.setDate(date.getDay());
-			pessoa.setDataNascimento(new Date());
 			retorno.add(pessoa);
 		}
 
@@ -65,9 +53,7 @@ public class PessoaDao {
 		PreparedStatement ps = conexao.prepareStatement(sqlInserir);
 
 		ps.setString(1, pessoa.getNome());
-		ps.setString(2, pessoa.getEmail());
-		ps.setString(3, pessoa.getCelular());
-		ps.setString(4, pessoa.getFixo());
+		ps.setString(2, pessoa.getCelular());
 
 		ps.execute();
 
@@ -93,9 +79,6 @@ public class PessoaDao {
 			pessoa.setId(rs.getInt("id"));
 			pessoa.setNome(rs.getString("nome"));
 			pessoa.setCelular(rs.getString("celular"));
-			pessoa.setFixo(rs.getString("fixo"));
-			pessoa.setEmail(rs.getString("email"));
-			pessoa.setDataNascimento(new Date());
 			return pessoa;
 		}
 
@@ -107,10 +90,8 @@ public class PessoaDao {
 		PreparedStatement ps = conexao.prepareStatement(sqlEditar);
 
 		ps.setString(1, pessoa.getNome());
-		ps.setString(2, pessoa.getEmail());
-		ps.setString(3, pessoa.getCelular());
-		ps.setString(4, pessoa.getFixo());
-		ps.setInt(5, pessoa.getId());
+		ps.setString(2, pessoa.getCelular());
+		ps.setInt(3, pessoa.getId());
 
 		ps.execute();
 

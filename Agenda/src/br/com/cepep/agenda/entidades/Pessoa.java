@@ -1,5 +1,7 @@
 package br.com.cepep.agenda.entidades;
 
+import java.util.Date;
+
 public class Pessoa {
 	private int id;
 	private String nome;
@@ -7,6 +9,7 @@ public class Pessoa {
 	private String fixo;
 	private String email;
 	private String imagem;
+	private Date dataNascimento;
 	
 	public int getId() {
 		return id;
@@ -43,5 +46,11 @@ public class Pessoa {
 	}
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 }
