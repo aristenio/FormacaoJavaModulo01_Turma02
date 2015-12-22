@@ -2,6 +2,7 @@ package br.com.cepep.tarefas.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,13 @@ public class TarefasController {
 	public String alterar(Tarefa tarefa) throws Exception {
 		tarefasDao.editarTarefa(tarefa);
 		return "redirect:listar";
+	}
+	
+	@RequestMapping("finalizarTarefa")
+	public void finalizarTarefa(Long id, HttpServletResponse response) throws Exception {
+		Tarefa tarefaFinalizada = tarefasDao.finalizarTarefa(id);
+		response.getWriter().write(tarefaFinalizada.getDataFinalizacao().getTime().toString());
+		response.setStatus(200);
 	}
 	
 }

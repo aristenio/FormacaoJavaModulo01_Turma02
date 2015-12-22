@@ -16,4 +16,6 @@ public interface TarefasDao {
 	public Tarefa consultarTarefa(Long id) throws SQLException;
 
 	public void editarTarefa(Tarefa tarefa) throws SQLException;
+	
+	public Tarefa finalizarTarefa(Long id) throws SQLException;
 }

@@ -1,6 +1,7 @@
 package br.com.cepep.tarefas.dao;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -35,5 +36,15 @@ public class JpaTarefasDao implements TarefasDao{
 
 	public void editarTarefa(Tarefa tarefa) throws SQLException {
 		manager.merge(tarefa);
+	}
+
+	@Override
+	public Tarefa finalizarTarefa(Long id) throws SQLException {
+		Tarefa tarefa = this.consultarTarefa(id);
+		tarefa.setFinalizado(true);
+		tarefa.setDataFinalizacao(Calendar.getInstance());
+		this.editarTarefa(tarefa);
+		
+		return tarefa;
 	}
 }

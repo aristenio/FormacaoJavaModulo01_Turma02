@@ -10,6 +10,14 @@
 </head>
 <body>
 	<c:import url="../cabecalho.jsp" />
+	<script type="text/javascript">
+		function finalizarAgora(id) {
+			$.post("finalizarTarefa", {'id' : id}, function (resposta) {
+				$("#tarefa_"+id).html("Finalizado");
+				$("#datatarefa_"+id).html(resposta);
+			})
+		}
+	</script>
 	<div id="content" class="container_16 clearfix">
 		<div class="grid_16">
 			<h2>Lista de tarefas</h2>
@@ -27,12 +35,12 @@
 						<td>${tarefa.id}</td>
 						<td>${tarefa.descricao}</td>
 						<c:if test="${tarefa.finalizado eq false}">
-							<td>Não Finalizado</td>
+							<td id="tarefa_${tarefa.id}"><a href="#" onclick="finalizarAgora(${tarefa.id})">Finalizar agora!</a></td>
 						</c:if>
 						<c:if test="${tarefa.finalizado eq true}">
 							<td>Finalizado</td>
 						</c:if>
-						<td><fmt:formatDate value="${tarefa.dataFinalizacao.time}"
+						<td id="datatarefa_${tarefa.id}"><fmt:formatDate value="${tarefa.dataFinalizacao.time}"
 								pattern="dd/MM/yyyy" /></td>
 						<td><a href="excluir?id=${tarefa.id}">excluir</a></td>
 						<td><a href="editar?id=${tarefa.id}">editar</a></td>
