@@ -2,10 +2,33 @@ package br.com.cepep.tarefas.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
+@Table(name="tarefa")
 public class Tarefa {
+	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(nullable=false)
 	private String descricao;
+	
+	@Column
 	private boolean finalizado;
+	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+	@Column(nullable=true)
 	private Calendar dataFinalizacao;
 	
 	public Long getId() {
